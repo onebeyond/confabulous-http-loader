@@ -59,7 +59,7 @@ describe('http', function() {
         server = app.listen(3000, function() {
             http({ url: 'http://localhost:3000/config', request: { timeout: 500 } })(confabulous, function(err, config) {
                 assert(err)
-                assert.equal(err.message, 'ETIMEDOUT')
+                assert.equal(err.message, 'ESOCKETTIMEDOUT')
                 done()
             })
         })
@@ -259,7 +259,7 @@ describe('http', function() {
                 assert.equal(config.loaded, 'loaded')
             }).on('error', function(err) {
                 assert(err)
-                assert.equal(err.message, 'ETIMEDOUT')
+                assert.equal(err.message, 'ESOCKETTIMEDOUT')
                 done()
             })
         })
